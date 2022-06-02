@@ -20,6 +20,8 @@
     },
     "incremental": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules", "config/babel.config.js", "cofnig/jest.config.js"
+  ],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,7 +1,29 @@
+@font-face {
+    font-family: 'GenJyuuGothicMonoHeavy';
+    src: url(/fonts/GenJyuuGothicMonospaceHeavy.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'GenJyuuGothicMonoMedium';
+    src: url(/fonts/GenJyuuGothicMonospaceMedium.ttf) format('truetype');
+}
+
+:root {
+  --hue: 223;
+  --hue2: 13;
+  --menuBg: hsl(var(--hue), 57%,90%);
+  --fg: hsl(var(--hue),10%,10%);
+  --text: hsl(var(--hue),90%,55%);
+  --trans-dur: 0.3s;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

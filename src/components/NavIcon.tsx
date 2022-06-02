@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import styles from '@/styles/Nav.module.scss';
 import lottie from 'lottie-web/build/player/lottie_light';
 import animationData from '../animations/burger.json';
 
 
 type NavIconProps = {
   open: boolean,
-  setOpen: Function
+  setOpen: Function,
+  styles?: CSSProperties
 };
 var anim:any = null;
 
-export default function NavIcon({ open, setOpen }:NavIconProps) {
+export default function NavIcon({ open, setOpen, styles }:NavIconProps) {
   const animationContainer = useRef(null);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ export default function NavIcon({ open, setOpen }:NavIconProps) {
 
   return (
     <div
+      style={styles}
       onClick={() => {
         console.info("clicked: " + open + ":" + ( anim != null ))
         setOpen(!open);
@@ -41,10 +42,10 @@ export default function NavIcon({ open, setOpen }:NavIconProps) {
         anim?.play();
       }}
       ref={animationContainer}
-    ></div>
+    >
+    </div>
   );
 }
-
 
 NavIcon.propTypes = {
   open: PropTypes.bool.isRequired,
