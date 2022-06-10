@@ -22,11 +22,18 @@ export default function Layout({ children }: LayoutProps) {
           top: 0px;
           left: 0px;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
         }
-
         main {
-          padding:0;
+          flex: 1;
+          padding: 40px 50px;
           margin:0;
+          overflow-y: scroll;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          overflow-y: auto;
         }
       `}  
       </style>

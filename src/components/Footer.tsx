@@ -5,6 +5,8 @@ export default function Footer() {
 
       return (
         <footer className={styles.footer}>
-          Powered by airinterface
+          Powered by <a href="https://github.com/airinterface/dxhealth.jp" target="_new" >
+          airinterface
+          </a>
        </footer>)
     }

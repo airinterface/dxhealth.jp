@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import lottie from 'lottie-web/build/player/lottie_light';
 import animationData from '../animations/burger.json';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { getBlogCategory } from '@/pages/api/BlogService'
 
 type MenuTypes = {
@@ -11,8 +12,14 @@ type MenuTypes = {
 };
 
 export default function Menu({ open, setOpen }:MenuTypes) {
+  const router = useRouter();
   const categories = getBlogCategory(); 
   const classes = `menuContainer ${open ? "opened":""}`
+
+  const clickMenu = ( path: any )=> {
+    setOpen( false );
+    router.push( path )
+  }
   return (
     <div className={classes}>
       <style jsx>
@@ -72,14 +79,8 @@ export default function Menu({ open, setOpen }:MenuTypes) {
       `}
       </style>
       <ul>
-        {categories.map((category:any, i:number) => (
-          <li key={i} className="menuItem">
-              <Link  href="/blog/{category.name}">
-              {category.name}
-              </Link>
-          </li>
-        ))}
-        <li key="0" >About</li>
+        <li key="0" onClick={ ()=> clickMenu("/")} >Home</li>
+        <li key="1" onClick={ ()=> clickMenu("/About")}>About</li>
       </ul>
     </div>
   );

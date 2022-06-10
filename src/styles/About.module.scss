@@ -1,0 +1,20 @@
+.container {
+  flex: 1;
+  max-width: 1000px;
+  width: 80%;
+  height:100%;
+  overflow:auto;
+  h1 {
+    margin-bottom: 2em;
+    font-family: 'GenJyuuGothicMonoHeavy', "Times New Roman", Times;
+  }
+  a {
+  text-decoration: underline;
+  margin: 0px 0.25em;
+  }
+
+  p {
+    line-height: 2em;
+    font-family: 'GenJyuuGothicMonoMedium', "Times New Roman", Times;
+  }
+}

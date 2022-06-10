@@ -1,7 +1,32 @@
 import styles from '@/styles/Header.module.scss'
-export default function Header() {
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+
+const scrollY = 50;
+
+import { withRouter, NextRouter } from 'next/router'
+
+interface WithRouterProps {
+  router: NextRouter
+}
+
+interface HeaderComponentProps extends WithRouterProps {}
+
+
+function Header({ router }: HeaderComponentProps ) {
+  const [ menuClass, setMenuClass ] = useState( styles.small_menu )
+  const getMenuClass = ( scrollY: number = 0 )=>{
+    console.info("Router = " + router.pathname );
+    const isHome = router.pathname === "/" ?? router.pathname === "/index"
+    return isHome ? styles.big_menu : styles.small_menu
+  }
+  useEffect(()=>{
+    setMenuClass( getMenuClass( 0 ) )
+
+  }, [router] );
+
   return(
-    <div className={styles.header_container}>
+    <div className={menuClass} onClick={ () => router.push('/')}>
       <h1 key="1" className={styles.title}>
         DxHealth
       </h1>
@@ -11,3 +36,5 @@ export default function Header() {
     </div>
   )
 }
+
+export default withRouter( Header )

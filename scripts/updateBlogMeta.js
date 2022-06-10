@@ -8,38 +8,65 @@ console.info( "docDir = " + docDir)
 var categories = [];
 var catFiles = {}
 var files = {}
-var firstFile = null;
+var sortedFileKeys = [];
+const executeCommand = require('./executeCommand')
+
+const getAuthorMap = ()=>{
+  let rawdata = fs.readFileSync( path.join( docDir, 'meta', 'authorMap.json'));
+  let authors = JSON.parse(rawdata);
+  return authors;
+}
 
 const getDatafromDocs = async () => {
-  return new Promise( ( resolve, reject ) => {
-    fs.readdir(docDir, (err, files) => {
-      files.forEach( file => {
+  const authorMap = getAuthorMap();
+  await  new Promise( ( resolve, reject ) => {
+    fs.readdir(docDir, async (err, files) => {
+      for ( var i =0; i < files.length; i++ ) {
+        let file = files[i]
         const lPath = path.join( docDir, file );
         if( fs.statSync(lPath).isDirectory() && file != 'meta' ) {
           const [ ignore, category ] = file.split(":") 
-          getFiles(path.resolve( lPath ))
-          .then( async arr => {
-            /* ドキュメントがある場合のみ、カテゴリーを作る　*/
-            if( arr.length > 0 ) {
-              metaData = loadMetaFile( path.join( lPath, 'meta.json'))
-              await insertToMetaCache( category, metaData, arr )
-              resolve( compileResult() ) 
-            }
-          })
+          const arr = await getFiles(category, path.resolve( lPath ), authorMap)
+          console.info("arr === " + JSON.stringify( arr ))
+          /* ドキュメントがある場合のみ、カテゴリーを作る　*/
+          if( arr.length > 0 ) {
+            metaData = loadMetaFile( path.join( lPath, 'meta.json'))
+            await insertToMetaCache( category, metaData, arr )
+          }
         }
-      });
+
+      }
+      resolve()
     });
   });
+  sortedFileKeys = sortFileKeys( sortedFileKeys );
+  return compileResult(); 
 }
 
+const sortFunction = ( fileA , fileB ) => {
+  var res = 0;
+  if( fileA.date == fileB.date ) {
+    res =   -1 * ( fileA.mtime - fileB.mtime ) 
+  } else {
+    res = -1 * ( fileA.date - fileB.date )
+  }
+  return res;
+}
+
+const sortFileKeys = (_fileKeys)=>{
+  console.log(" sortedFileKeys - " + sortedFileKeys )
+  _fileKeys = _fileKeys.sort( sortFunction )
+  return _fileKeys;
+}
 
 const compileResult = ()=> {
-  return {
+  res =  {
     categories,
     catFiles,
     files,
-    firstFile
+    sortedFileKeys
   }
+  return res;
 } 
 const insertToMetaCache = async (category, metaData, fileArr )=>{
   categories.push( 
@@ -48,19 +75,20 @@ const insertToMetaCache = async (category, metaData, fileArr )=>{
       name: category
     });
   const categoryArr = []
-  const sortedFileArr = fileArr.sort((fileA,fileB ) => -1 * ( fileA.mtime - fileB.mtime ) )
-
-  if( firstFile == null || firstFile.mtime > sortedFileArr[0].mtime ) {
-    firstFile = sortedFileArr[0]
-  }
+  const sortedFileArr = fileArr.sort( sortFunction )
 
   sortedFileArr.forEach(fileItem => {
+    sortedFileKeys.push( {
+      category: category,
+      key: fileItem.key,
+      date: fileItem.date
 
-    files[fileItem.path] = fileItem
+    })
+    files[fileItem.key] = fileItem
     categoryArr.push( {
       title: fileItem.title,
-      date: fileItem.ctime,
-      key: fileItem.path
+      date: fileItem.date,
+      key: fileItem.key,
     })
   })
   catFiles[category]=categoryArr
@@ -72,26 +100,38 @@ const loadMetaFile = ( filePath ) => {
   return meta;
 }
 
-const getFiles = async ( dirpath )=>{
+const getFiles = async ( category, dirpath, authorMap)=>{
   const res = [];
   return new Promise( ( resolve, reject ) => {
     try{
-      fs.readdir(dirpath, (err, _files) => {
-        _files.forEach(file => {
+      fs.readdir(dirpath, async (err, _files) => {
+        for( var i = 0; i < _files.length; i ++ ) {
+          const file = _files[i];          
           if( file != "meta.json") {
-            let filepath = path.join(dirpath, file)
-            let relativePath = filepath.replace(currentPath + '/', '')
-            const stats = fs.statSync( filepath );
-            res.push({
-              ...getFileMeta(file),
-              path: filepath,
-              relativePath,
-              filename: file,
-              ctime: stats.ctime,
-              mtime: stats.mtime
-            });
+            try{
+              let filepath = path.join(dirpath, file)
+              let relativePath = filepath.replace(currentPath + '/', '')
+              const stats = fs.statSync( filepath );
+              let authorKey = await getFileAuthor( relativePath )
+              let author = authorMap[authorKey] ?? authorKey
+              res.push({
+                ...getFileMeta(file),
+                category,
+                author,
+                authorKey,
+                path: filepath,
+                key: relativePath,
+                relativePath,
+                filename: file,
+                ctime: stats.ctime,
+                mtime: stats.mtime
+              });
+            } catch( e ) {
+               console.info( 'error: ' + e )
+            }
+
           }
-        });
+        }
         resolve( res )
       });
     } catch ( e ) {
@@ -100,16 +140,32 @@ const getFiles = async ( dirpath )=>{
   });
 }
 
+const getFileAuthor = async ( relativeFilePath ) => {
+  var author = "unknown"
+  var command = `git log -1 --pretty=format:'%an' ${relativeFilePath}`   
+  try {
+    author = await executeCommand(  command )
+  } catch( e ) {
+    console.log( e );
+  }
+  return author;
+}
+
 /* retrieve meta info from file. */
 const getFileMeta = ( filename ) => {
   var tags = []
   var metareg = /^([^:]+):([^:]+):?([^.]*)\.md$/
-  const [ignore, date, title, tagstr ] = filename.match( metareg )
+  const [ignore, date, slug, tagstr ] = filename.match( metareg )
   if( tagstr.length > 0 ) {
     tags = tagstr.split(',')
   }
+  let [_, year, month, day ] =  date.match(/([\d]{4})([\d]{2})([\d]{2})/)
+  console.log(`${year}-${month}-${day}T00:00:00Z`)
+  let authorDate = new Date(`${year}-${month}-${day}T00:00:00Z`)
+  console.log("date = " + authorDate )
   return {
-    title,
+    slug,
+    date: authorDate,
     tags
   }
 }
@@ -118,7 +174,8 @@ async function main(){
   var res  = await getDatafromDocs();
   Object.keys( res ).forEach( ( value ) => {
     let content = JSON.stringify( res[value], null, 4 );
-    let filePath = path.join( metaPath, `${value}.json`);    
+    let filePath = path.join( metaPath, `${value}.json`);
+    console.log( 'writing : ' + filePath );
     fs.writeFile( filePath, content, err => {
       if (err) {
         console.error(err);
