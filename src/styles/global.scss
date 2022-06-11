@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'GenJyuuGothicMonoHeavy';
     src: url(/fonts/GenJyuuGothicMonospaceHeavy.ttf) format('truetype');
@@ -11,6 +12,7 @@
 :root {
   --hue: 223;
   --hue2: 13;
+  --mobile-size: 900px;
   --menuBg: hsl(var(--hue), 57%,90%);
   --fg: hsl(var(--hue),10%,10%);
   --text: hsl(var(--hue),90%,55%);

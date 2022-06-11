@@ -43,9 +43,11 @@ export default function Blog( props  :  ServerProps ) {
           />
           <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-      <BlogList current={blog} blogList={blogList} />
-      <BlogItem blog={blog} /> 
+      <div className={styles.blogItem}>
+        <BlogItem blog={blog} />
+      </div> 
+      <div className={styles.blogList}>
+        <BlogList current={blog} blogList={blogList}  />
       </div>
     </div>
     )

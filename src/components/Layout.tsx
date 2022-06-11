@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
         }
         main {
           flex: 1;
-          padding: 40px 50px;
+          padding: 10px 20px 0px 20px;
           margin:0;
           overflow-y: scroll;
           display: flex;

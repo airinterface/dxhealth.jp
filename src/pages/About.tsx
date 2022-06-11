@@ -21,10 +21,10 @@ export default function About() {
       <p>貢献者：
         <ul>
         <li><em>福田ゆり</em><br />
-        ブログ、サイト製作者。
-        現在、テクノのジストとして、個人のプロジェクトを発信していく傍ら、現在は非営利機関
+        DxHealth製作者。
+        現在、テクノロジストエンジニアとして、個人のプロジェクトを企画、作成していく傍ら、現在は非営利機関
         <a href="https://www.thecommonsproject.org/" target="_new">TheCommonsProject</a>
-        に リードエンジニアとして、貢献しています。
+        でリードエンジニアとして、働いています。
 
         </li>
         </ul>

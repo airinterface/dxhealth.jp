@@ -1,7 +1,20 @@
 
 .blogContent {
+  h1 {
+    font-family: 'GenJyuuGothicMonoHeavy', "Times New Roman", Times;
 
+    @media only screen and (max-width: 900px) {
+    & {
+      flex-direction: column;
+      padding: 20px 5px 0 5px;
+
+    }
+  }
+  }
   p {
       margin-top: 2em;
+      font-family: 'GenJyuuGothicMonoMedium', "Times New Roman", Times;
+      font-size: 1em;
+
   }
 }

@@ -20,7 +20,8 @@ export type FileContent = {
   title: string,
   authorKey: string,
   category: string,
-  slug: string
+  slug: string,
+  key: string
 }
 
 export interface SortedFileItem {

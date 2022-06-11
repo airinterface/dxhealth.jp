@@ -60,6 +60,7 @@ const createListItemFromFileItem = ( fileItem: FileItemType ): FileContent=> {
       category: fileItem.category,
       authorKey: fileItem.authorKey,
       slug: fileItem.slug,
+      key: fileItem.key,
       content,
       date: ( new Date( date )).toLocaleDateString()
     };
