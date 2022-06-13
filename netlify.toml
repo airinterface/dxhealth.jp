@@ -1,0 +1,5 @@
+[build]
+  command = "npm run dev"
+publish = ".next"
+[build.environment]
+  NODE_VERSION = "17.8.0"

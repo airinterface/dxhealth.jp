@@ -17,7 +17,6 @@ export default function Menu({ open, setOpen }:MenuTypes) {
   const classes = `menuContainer ${open ? "opened":""}`
 
   const clickMenu = ( path: any )=> {
-    setOpen( false );
     router.push( path )
   }
   return (

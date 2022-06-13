@@ -113,7 +113,7 @@ const getFiles = async ( category, dirpath, authorMap)=>{
               let relativePath = filepath.replace(currentPath + '/', '')
               const stats = fs.statSync( filepath );
               let authorKey = await getFileAuthor( relativePath )
-              let author = authorMap[authorKey] ?? authorKey
+              let author = authorMap[authorKey] || authorKey
               res.push({
                 ...getFileMeta(file),
                 category,
