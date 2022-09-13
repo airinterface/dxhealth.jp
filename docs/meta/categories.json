@@ -4,5 +4,11 @@
             "description": "データの使いみち"
         },
         "name": "健康"
+    },
+    {
+        "meta": {
+            "description": "実装例"
+        },
+        "name": "実装例"
     }
 ]
