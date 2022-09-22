@@ -1,22 +1,20 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { getBlogCategory, getFirstBlogLists} from '@/pages/api/BlogService'
-import { FileContent } from '@/types'
-import { useRef, useEffect } from 'react'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import Link from 'next/link'
-
+import { getBlogCategory, getFirstBlogLists } from '@/pages/api/BlogService';
+import { FileContent } from '@/types';
+import { useRef, useEffect } from 'react';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import Link from 'next/link';
 
 import styles from '@/styles/Home.module.css';
 
-
 interface Props {
-  blogs : FileContent[]
+  blogs: FileContent[];
 }
 
-export default function Home( { blogs } :Props ) {
-  const containerRef = useRef(null)
-  const categories:any[] = getBlogCategory()
+export default function Home({ blogs }: Props) {
+  const containerRef = useRef(null);
+  const categories: any[] = getBlogCategory();
 
   return (
     <div className={styles.container}>
@@ -30,30 +28,27 @@ export default function Home( { blogs } :Props ) {
       </Head>
 
       <main className={styles.main}>
-        <div ref={containerRef}>
-        </div>
+        <div ref={containerRef}></div>
         <div className={styles.grid}>
-          { blogs.map( ( blogItem, i )=> (
-                <Link key={i} href={`/blogs/${blogItem.category}/${blogItem.slug}`}>
-                  <div  className={styles.card}>
-                    <h2 key="1">{blogItem.title} &rarr;</h2>
-                    <p>{blogItem.date}</p>
-                  </div>
-                </Link>
-            )
-          )}
+          {blogs.map((blogItem, i) => (
+            <Link key={i} href={`/blogs/${blogItem.category}/${blogItem.slug}`}>
+              <div className={styles.card}>
+                <h2 key="1">{blogItem.title} &rarr;</h2>
+                <p>{blogItem.date}</p>
+              </div>
+            </Link>
+          ))}
         </div>
-      </main>  
+      </main>
     </div>
   );
 }
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
-  const blogs = await getFirstBlogLists( 6 )
+  const blogs = await getFirstBlogLists(6);
   return {
     props: {
-      blogs: blogs
-    }
-  }
-}
+      blogs: blogs,
+    },
+  };
+};

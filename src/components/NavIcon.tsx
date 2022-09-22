@@ -4,31 +4,30 @@ import PropTypes from 'prop-types';
 import lottie from 'lottie-web/build/player/lottie_light';
 import animationData from '../animations/burger.json';
 
-
 type NavIconProps = {
-  open: boolean,
-  setOpen: Function,
-  styles?: CSSProperties
+  open: boolean;
+  setOpen: any;
+  styles?: CSSProperties;
 };
-var anim:any = null;
+let anim: any = null;
 
-export default function NavIcon({ open, setOpen, styles }:NavIconProps) {
+export default function NavIcon({ open, setOpen, styles }: NavIconProps) {
   const animationContainer = useRef(null);
 
   useEffect(() => {
     if (animationContainer.current) {
       anim = lottie.loadAnimation({
         container: animationContainer.current,
-        renderer: 'svg',
+        renderer: `svg`,
         loop: false,
         autoplay: false,
         animationData,
       });
 
       return () => {
-        console.info("destroy")
+        console.info(`destroy`);
         anim?.destroy();
-      }
+      };
     }
   }, []);
 
@@ -36,14 +35,13 @@ export default function NavIcon({ open, setOpen, styles }:NavIconProps) {
     <div
       style={styles}
       onClick={() => {
-        console.info("clicked: " + open + ":" + ( anim != null ))
+        console.info(`clicked: ` + open + `:` + (anim != null));
         setOpen(!open);
         anim?.setDirection(open ? -1 : 1);
         anim?.play();
       }}
       ref={animationContainer}
-    >
-    </div>
+    ></div>
   );
 }
 
