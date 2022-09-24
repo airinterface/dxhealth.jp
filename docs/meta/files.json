@@ -4,8 +4,8 @@
         "date": "2022-09-21T00:00:00.000Z",
         "tags": [],
         "category": "健康",
-        "author": "",
-        "authorKey": "",
+        "author": "福田ゆり",
+        "authorKey": "airinterface",
         "path": "/home/yuri/Workspace/dxhealth.jp/docs/health:健康/20220921:SHCの注意点.md",
         "key": "docs/health:健康/20220921:SHCの注意点.md",
         "relativePath": "docs/health:健康/20220921:SHCの注意点.md",
@@ -26,8 +26,8 @@
         "key": "docs/health:健康/20220620:SHCについて:health.md",
         "relativePath": "docs/health:健康/20220620:SHCについて:health.md",
         "filename": "20220620:SHCについて:health.md",
-        "ctime": "2022-09-13T17:42:44.502Z",
-        "mtime": "2022-09-13T17:42:44.502Z"
+        "ctime": "2022-09-24T01:25:38.141Z",
+        "mtime": "2022-09-24T01:25:38.141Z"
     },
     "docs/health:健康/20220522:FHIRについて.md": {
         "slug": "FHIRについて",
@@ -59,6 +59,20 @@
         "ctime": "2022-06-20T20:58:23.720Z",
         "mtime": "2022-06-20T20:58:23.720Z"
     },
+    "docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md": {
+        "slug": "FHIRフォーマットの使用例",
+        "date": "2022-09-23T00:00:00.000Z",
+        "tags": [],
+        "category": "実装例",
+        "author": "福田ゆり",
+        "authorKey": "airinterface",
+        "path": "/home/yuri/Workspace/dxhealth.jp/docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md",
+        "key": "docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md",
+        "relativePath": "docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md",
+        "filename": "20220923:FHIRフォーマットの使用例.md",
+        "ctime": "2022-09-23T23:55:26.929Z",
+        "mtime": "2022-09-23T23:55:26.929Z"
+    },
     "docs/implementation:実装例/20220922:SHC生成過程.md": {
         "slug": "SHC生成過程",
         "date": "2022-09-22T00:00:00.000Z",
@@ -70,8 +84,8 @@
         "key": "docs/implementation:実装例/20220922:SHC生成過程.md",
         "relativePath": "docs/implementation:実装例/20220922:SHC生成過程.md",
         "filename": "20220922:SHC生成過程.md",
-        "ctime": "2022-09-22T15:42:04.681Z",
-        "mtime": "2022-09-22T15:42:04.681Z"
+        "ctime": "2022-09-23T21:00:54.407Z",
+        "mtime": "2022-09-23T21:00:54.407Z"
     },
     "docs/implementation:実装例/20220907:SHCの作成の仕方:health.md": {
         "slug": "SHCの作成の仕方",
