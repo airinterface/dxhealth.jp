@@ -32,6 +32,7 @@ export default function Menu({ open, setOpen }: MenuTypes) {
             -webkit-overflow-scrolling: touch;
             scrollbar-width: 8px;
             scrollbar-color: transparent transparent;
+            background:#FFFFFF;
           }
 
           .opened {
@@ -45,6 +46,7 @@ export default function Menu({ open, setOpen }: MenuTypes) {
             margin-inline-start: 0px;
             margin-inline-end: 0px;
             padding-inline-start: 0px;
+            filter: drop-shadow(5px 5px 5px #ddddd);
           }
 
           li {

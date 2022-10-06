@@ -1,5 +1,10 @@
 [
     {
+        "category": "健康",
+        "key": "docs/health:健康/20221003:デジタル化とグローバル化のギャップ:health.md",
+        "date": "2022-10-03T00:00:00.000Z"
+    },
+    {
         "category": "実装例",
         "key": "docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md",
         "date": "2022-09-23T00:00:00.000Z"
