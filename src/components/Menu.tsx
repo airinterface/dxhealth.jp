@@ -32,7 +32,7 @@ export default function Menu({ open, setOpen }: MenuTypes) {
             -webkit-overflow-scrolling: touch;
             scrollbar-width: 8px;
             scrollbar-color: transparent transparent;
-            background:#FFFFFF;
+            background: #ffffff;
           }
 
           .opened {
