@@ -3,9 +3,19 @@ import files from '../../../docs/meta/files.json';
 import { FileItemType, SortedFileItem, BlogItem, FileContent } from '@/types';
 import sortedFileKeys from '../../../docs/meta/sortedFileKeys.json';
 const fs = require(`fs`);
-const MarkdownIt = require(`markdown-it`);
+const md = require(`markdown-it`)();
+const anchor = require('markdown-it-anchor').default
 
-const md = MarkdownIt();
+md.use(anchor, {
+  level: 1,
+  // slugify: string => string,
+  permalink: false,
+  // renderPermalink: (slug, opts, state, permalink) => {},
+  permalinkClass: 'header-anchor',
+  permalinkSymbol: '¶',
+  permalinkBefore: false
+})
+
 
 type categoryType = {
   meta: any;

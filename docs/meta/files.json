@@ -80,14 +80,14 @@
         "date": "2023-06-23T00:00:00.000Z",
         "tags": [],
         "category": "実装例",
-        "author": "Yuri Fukuda",
-        "authorKey": "Yuri Fukuda",
+        "author": "福田ゆり",
+        "authorKey": "airinterface",
         "path": "/Users/yurifukuda/WorkSpace/airinterface/dxhealth.jp/docs/implementation:実装例/20230623:SHCの情報の認証と基準.md",
         "key": "docs/implementation:実装例/20230623:SHCの情報の認証と基準.md",
         "relativePath": "docs/implementation:実装例/20230623:SHCの情報の認証と基準.md",
         "filename": "20230623:SHCの情報の認証と基準.md",
-        "ctime": "2023-07-21T20:07:35.739Z",
-        "mtime": "2023-07-21T20:07:35.739Z"
+        "ctime": "2023-07-26T19:27:40.528Z",
+        "mtime": "2023-07-26T19:27:40.528Z"
     },
     "docs/implementation:実装例/20220923:FHIRフォーマットの使用例.md": {
         "slug": "FHIRフォーマットの使用例",
