@@ -111,7 +111,9 @@ export const getBlog = (category: string, slug: string): BlogItem | null => {
     /* eslint-disable  prefer-const*/
     let { content, title } = getFileContent(path);
     const date = new Date(fileItem.date).toString();
-    content = content.replace(/^\<h1\>.+\<\/h1\>\n?/, ``);
+    console.info("content============")
+    console.info(content.substring(0, 10))
+    content = content.replace(/^\<h1[^\>]*\>[^\<]+\<\/h1\>\n?/, ``);
     res = {
       key,
       title,
