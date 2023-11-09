@@ -18,14 +18,18 @@ IPSを一括に作成できるツールを開発し　またそのIPSを閲覧�
 情報を公開できるようになっています。
 
 
+https://github.com/airinterface/dxhealth.jp/assets/2448586/38335744-7bd0-4e1a-abf4-fe10a726dd62
+
+
+
 
 ## IPS の構成
 
 IPSはケアの引き継ぎ、移行の際、全てではなく、必要最小限の情報で構成されています。
 
 
-構成のTemplateは(CDA R2)[https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447]を使用しています。
-その中で、(FHIRのComposition)[http://build.fhir.org/ig/HL7/fhir-ips/] (現在のバージョン) の構成
+構成のTemplateは[CDA R2](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=447)を使用しています。
+その中で、[FHIRのComposition](http://build.fhir.org/ig/HL7/fhir-ips/) (現在のバージョン) の構成
 に従い、情報が入っています。
 
 その中には　Header, 必要項目、推奨項目、任意項目
