@@ -1632,3 +1632,5 @@ Custodian：元の医療情報の管理者
 - Functional Status
 - Plan of Care
 - Advance Directives
+
+[SHL](/blogs/実装例/SHLの作成と取り込み)
