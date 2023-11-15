@@ -22,6 +22,8 @@ https://github.com/airinterface/dxhealth.jp/assets/2448586/38335744-7bd0-4e1a-ab
 
 
 
+IPSの情報の相互運用性の実装の際の内容は[こちら](/blogs/実装例/SHLの作成と取り込み)にまとめてあります。
+
 
 ## IPS の構成
 
@@ -42,6 +44,39 @@ Composition にHeaderが入り、
 Composition の　entry　のレコードの中にはHeader以外の情報が下記のカテゴリーになって入って行きます。
 また、そのCompositionのリソースにsectionというFieldの中にそれぞれにカテゴリーごとに
 実際のデータのリファレンスが記載されています。
+
+
+### Header
+Subject：連絡タイトル
+Author：作成者
+Attester：元の医療情報の承認者
+Custodian：元の医療情報の管理者
+
+
+### 必要項目、推奨項目、任意項目
+
+#### 必要項目
+
+
+- Medication Summary
+- Allegies and Intolerances
+- Problem List
+
+#### 推奨項目
+
+- Immunizations
+- History of Procedure
+- Medical Devices
+- Diagnostic Results
+
+### 任意項目
+- Vital Signs
+- Past History of illness
+- Pregnancy
+- Social History
+- Functional Status
+- Plan of Care
+- Advance Directives
 
 ### Example Data
 ```
@@ -1601,36 +1636,3 @@ Composition の　entry　のレコードの中にはHeader以外の情報が下
         ....
 ```
 
-### Header
-Subject：連絡タイトル
-Author：作成者
-Attester：元の医療情報の承認者
-Custodian：元の医療情報の管理者
-
-
-### 必要項目、推奨項目、任意項目
-
-#### 必要項目
-
-
-- Medication Summary
-- Allegies and Intolerances
-- Problem List
-
-#### 推奨項目
-
-- Immunizations
-- History of Procedure
-- Medical Devices
-- Diagnostic Results
-
-### 任意項目
-- Vital Signs
-- Past History of illness
-- Pregnancy
-- Social History
-- Functional Status
-- Plan of Care
-- Advance Directives
-
-[SHL](/blogs/実装例/SHLの作成と取り込み)
