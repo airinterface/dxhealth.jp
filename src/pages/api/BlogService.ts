@@ -4,7 +4,7 @@ import authormap from '../../../docs/meta/authorMap.json';
 import { FileItemType, SortedFileItem, BlogItem, FileContent } from '@/types';
 import sortedFileKeys from '../../../docs/meta/sortedFileKeys.json';
 const fs = require(`fs`);
-const md = require(`markdown-it`)();
+const md = require(`markdown-it`)({ html: true });
 const anchor = require(`markdown-it-anchor`).default;
 
 md.use(anchor, {
@@ -85,19 +85,15 @@ export const getMoreFromBlogByAuthorKey = (
   let i = 0;
   const author = (authormap as Record<string, string>)[authorKey];
   const _files = files as Record<string, any>;
-  console.info(`looking for the same author = ${author} max ${max}`);
   while (i < max && currentNum < max) {
     const fileInfo = sortedFileKeys[i];
     const fileItem = _files[fileInfo.key];
     if (fileItem.author == author) {
       currentNum++;
       res.push(createListItemFromFileItem(fileItem));
-    } else {
-      console.info(`author:${fileItem.author} != ${author}`);
     }
     i++;
   }
-  console.info(`returning:${JSON.stringify(res.length)}`);
   return res;
 };
 
@@ -115,7 +111,6 @@ export const getBlog = (category: string, slug: string): BlogItem | null => {
     /* eslint-disable  prefer-const*/
     let { content, title } = getFileContent(path);
     const date = new Date(fileItem.date).toString();
-    console.info(`content============`);
     console.info(content.substring(0, 10));
     content = content.replace(/^\<h1[^\>]*\>[^\<]+\<\/h1\>\n?/, ``);
     res = {
