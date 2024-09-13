@@ -18,7 +18,12 @@ IPSを一括に作成できるツールを開発し　またそのIPSを閲覧�
 情報を公開できるようになっています。
 
 
-https://github.com/airinterface/dxhealth.jp/assets/2448586/38335744-7bd0-4e1a-abf4-fe10a726dd62
+<video controls>
+  <source src="https://github.com/user-attachments/assets/b05e9c20-0181-4bae-8727-6604120330d8" type="video/mp4" />
+  <source src="https://github.com/airinterface/dxhealth.jp/assets/2448586/38335744-7bd0-4e1a-abf4-fe10a726dd62" type="video/quicktime" />
+</video>
+
+
 
 
 
