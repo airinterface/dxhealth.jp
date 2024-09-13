@@ -91,35 +91,35 @@
         "ctime": "2023-10-17T17:43:53.372Z",
         "mtime": "2023-10-17T17:43:53.372Z"
     },
-    "docs/implementation:実装例/20231110:SHLの作成と取り込み.md": {
+    "docs/implementation:実装例/20240913:SHLの作成と取り込み.md": {
         "slug": "SHLの作成と取り込み",
-        "date": "2023-11-10T00:00:00.000Z",
+        "date": "2024-09-13T00:00:00.000Z",
         "tags": [],
         "category": "実装例",
         "author": "福田ゆり",
         "authorKey": "airinterface",
-        "path": "/home/yuri/Workspace/dxhealth.jp/docs/implementation:実装例/20231110:SHLの作成と取り込み.md",
-        "key": "docs/implementation:実装例/20231110:SHLの作成と取り込み.md",
-        "relativePath": "docs/implementation:実装例/20231110:SHLの作成と取り込み.md",
-        "filename": "20231110:SHLの作成と取り込み.md",
-        "ctime": "2024-09-13T15:51:50.598Z",
-        "mtime": "2024-09-13T15:51:50.598Z"
+        "path": "/home/yuri/Workspace/dxhealth.jp/docs/implementation:実装例/20240913:SHLの作成と取り込み.md",
+        "key": "docs/implementation:実装例/20240913:SHLの作成と取り込み.md",
+        "relativePath": "docs/implementation:実装例/20240913:SHLの作成と取り込み.md",
+        "filename": "20240913:SHLの作成と取り込み.md",
+        "ctime": "2024-09-13T17:38:15.342Z",
+        "mtime": "2024-09-13T17:38:15.341Z"
     },
-    "docs/implementation:実装例/20231108:IPSの仕様:health.md": {
+    "docs/implementation:実装例/20240908:IPSの仕様:health.md": {
         "slug": "IPSの仕様",
-        "date": "2023-11-08T00:00:00.000Z",
+        "date": "2024-09-08T00:00:00.000Z",
         "tags": [
             "health"
         ],
         "category": "実装例",
         "author": "福田ゆり",
-        "authorKey": "Yuri Fukuda",
-        "path": "/home/yuri/Workspace/dxhealth.jp/docs/implementation:実装例/20231108:IPSの仕様:health.md",
-        "key": "docs/implementation:実装例/20231108:IPSの仕様:health.md",
-        "relativePath": "docs/implementation:実装例/20231108:IPSの仕様:health.md",
-        "filename": "20231108:IPSの仕様:health.md",
-        "ctime": "2024-09-13T13:19:10.891Z",
-        "mtime": "2024-09-13T13:19:10.891Z"
+        "authorKey": "airinterface",
+        "path": "/home/yuri/Workspace/dxhealth.jp/docs/implementation:実装例/20240908:IPSの仕様:health.md",
+        "key": "docs/implementation:実装例/20240908:IPSの仕様:health.md",
+        "relativePath": "docs/implementation:実装例/20240908:IPSの仕様:health.md",
+        "filename": "20240908:IPSの仕様:health.md",
+        "ctime": "2024-09-13T21:29:26.347Z",
+        "mtime": "2024-09-13T21:29:26.347Z"
     },
     "docs/implementation:実装例/20230623:SHCの情報の認証と基準.md": {
         "slug": "SHCの情報の認証と基準",
