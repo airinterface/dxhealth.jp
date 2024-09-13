@@ -326,19 +326,19 @@ Custodian：元の医療情報の管理者
           },
           "extension": [
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-brand",
+              "url": "https://fhir.test.io/StructureDefinition/ah-brand",
               "valueReference": {
-                "reference": "Organization/a-14523.Brand-1"
+                "reference": "Organization/a-14xxx.Brand-1"
               }
             },
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-chart-sharing-group",
+              "url": "https://fhir.test.io/StructureDefinition/ah-chart-sharing-group",
               "valueReference": {
                 "reference": "Organization/a-14523.CSG-1"
               }
             },
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-provider-group",
+              "url": "https://fhir.test.io/StructureDefinition/ah-provider-group",
               "valueReference": {
                 "reference": "Organization/a-14523.PG-1"
               }
@@ -350,7 +350,7 @@ Custodian：元の医療情報の管理者
           ],
           "identifier": [
             {
-              "system": "https://fhir.athena.io/sid/ah-patient",
+              "system": "https://fhir.test.io/sid/ah-patient",
               "value": "a-14523.E-857"
             }
           ],
@@ -369,12 +369,12 @@ Custodian：元の医療情報の管理者
           "telecom": [
             {
               "system": "phone",
-              "value": "(617) 402-8874",
+              "value": "(123) 456-7890",
               "use": "home"
             },
             {
               "system": "email",
-              "value": "phrtest@mailinator.com"
+              "value": "phrtest@test.com"
             }
           ],
           "gender": "male",
@@ -383,11 +383,11 @@ Custodian：元の医療情報の管理者
             {
               "use": "home",
               "line": [
-                "311 ARSENAL ST"
+                "311 Test ST"
               ],
-              "city": "WATERTOWN",
+              "city": "TESTTOWN",
               "state": "MA",
-              "postalCode": "02472",
+              "postalCode": "12345",
               "country": "USA",
               "period": {
                 "start": "2022-05-02"
@@ -397,11 +397,11 @@ Custodian：元の医療情報の管理者
               "use": "billing",
               "type": "postal",
               "line": [
-                "311 ARSENAL ST"
+                "311 TEST ST"
               ],
               "city": "WATERTOWN",
-              "state": "MA",
-              "postalCode": "02472",
+              "state": "TE",
+              "postalCode": "12345",
               "country": "USA",
               "period": {
                 "start": "2022-05-02"
@@ -780,7 +780,7 @@ Custodian：元の医療情報の管理者
           },
           "extension": [
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-condition-problem-type-category",
+              "url": "https://fhir.test.io/StructureDefinition/ah-condition-problem-type-category",
               "valueCode": "90734009"
             },
             {
@@ -854,7 +854,7 @@ Custodian：元の医療情報の管理者
           },
           "extension": [
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-condition-problem-type-category",
+              "url": "https://fhir.test.io/StructureDefinition/ah-condition-problem-type-category",
               "valueCode": "90734009"
             },
             {
@@ -928,7 +928,7 @@ Custodian：元の医療情報の管理者
           },
           "extension": [
             {
-              "url": "https://fhir.athena.io/StructureDefinition/ah-condition-problem-type-category",
+              "url": "https://fhir.test.io/StructureDefinition/ah-condition-problem-type-category",
               "valueCode": "90734009"
             },
             {
