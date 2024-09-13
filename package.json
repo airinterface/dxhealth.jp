@@ -11,7 +11,8 @@
     "typescript"
   ],
   "scripts": {
-    "dev": "next telemetry disable; node scripts/updateBlogMeta.js; next",
+    "generateMeta": "node scripts/updateBlogMeta.js",
+    "dev": "next telemetry disable; npm run generateMeta; next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",

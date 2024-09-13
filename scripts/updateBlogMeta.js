@@ -145,6 +145,7 @@ const getFileAuthor = async ( relativeFilePath ) => {
   var command = `git log -1 --pretty=format:'%an' ${relativeFilePath}`   
   try {
     author = await executeCommand(  command )
+    console.info(`author ${author} : ${relativeFilePath}`)
   } catch( e ) {
     console.log( e );
   }
