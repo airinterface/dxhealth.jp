@@ -53,7 +53,9 @@ export default function Menu({ open, setOpen }: MenuTypes) {
             pointer-events: all;
             list-style-type: none;
             cursor: pointer;
-            transition: background-color 0.75s linear, transform 0.5s linear,
+            transition:
+              background-color 0.75s linear,
+              transform 0.5s linear,
               padding 0.5s linear;
             transform-origin: left;
             transform: rotateY(-90deg);

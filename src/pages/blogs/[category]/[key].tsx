@@ -55,8 +55,15 @@ export default function Blog(props: ServerProps) {
 export const getServerSideProps = (context: contextParam) => {
   const { category, key } = context.params;
   const blog: BlogItemType | null = getBlog(category, key);
-  const blogList: FileContent[] =
-    blog != null ? getMoreFromBlogByAuthorKey(blog.authorKey, 10) : [];
+
+  if (blog === null) {
+    return { notFound: true } as const;
+  }
+
+  const blogList: FileContent[] = getMoreFromBlogByAuthorKey(
+    blog.authorKey,
+    10,
+  );
 
   return {
     props: {

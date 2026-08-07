@@ -62,7 +62,9 @@ export default function BlogList({ current, blogList }: BlogListProps) {
               border: 1px solid #eaeaea;
               border-radius: 10px;
               align-self: stretch;
-              transition: color 0.15s ease, border-color 0.15s ease;
+              transition:
+                color 0.15s ease,
+                border-color 0.15s ease;
             }
 
             li:hover,
