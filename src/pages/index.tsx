@@ -31,7 +31,11 @@ export default function Home({ blogs }: Props) {
         <div ref={containerRef}></div>
         <div className={styles.grid}>
           {blogs.map((blogItem, i) => (
-            <Link key={i} href={`/blogs/${blogItem.category}/${blogItem.slug}`}>
+            <Link
+              key={i}
+              href={`/blogs/${blogItem.category}/${blogItem.slug}`}
+              className={styles.cardLink}
+            >
               <div className={styles.card}>
                 <h2 key="1">{blogItem.title} &rarr;</h2>
                 <p>{blogItem.date}</p>
